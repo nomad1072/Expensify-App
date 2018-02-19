@@ -48,14 +48,14 @@ const filterText = (text = '') => ({
 
 const sortByAmount = () => ({
   type: 'SORT_BY_AMOUNT',
-  sortBy: 'Amount'
+  sortBy: 'amount'
 });
 
 // Sort By Date
 
 const sortByDate = () => ({
   type: 'SORT_BY_DATE',
-  sortBy: 'Date'
+  sortBy: 'date'
 });
 
 // Set start Data
@@ -104,7 +104,7 @@ const expensesReducer = (state = expensesReducerDefaultState, action) => {
 // filters Reducer
 const filterReducerDefaultState = {
   text: '',
-  sortBy: 'date',
+  sortBy: '',
   startDate: undefined,
   endDate: undefined
 }
