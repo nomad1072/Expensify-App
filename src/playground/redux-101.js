@@ -1,23 +1,8 @@
 import { createStore } from 'redux';
 
-// Action generators - function that returns action objects
+// Reducers
 
-const incrementCount = ({ incrementBy = 1 } = {}) => {
-  return {
-    type: 'INCREMENT',
-    incrementBy
-  }
-};
-
-const decrementCount = ({ decrementBy = 1 } = {}) => {
-  return {
-    type: 'DECREMENT',
-    decrementBy
-  }
-};
-
-
-const store = createStore((state = { count: 0 }, action) => {
+var countReducer = (state = { count: 0 }, action) => {
 
   switch (action.type) {
     case 'INCREMENT':
@@ -44,7 +29,28 @@ const store = createStore((state = { count: 0 }, action) => {
     default:
       return state;
   }
-});
+};
+
+
+
+// Action generators - function that returns action objects
+
+const incrementCount = ({ incrementBy = 1 } = {}) => {
+  return {
+    type: 'INCREMENT',
+    incrementBy
+  }
+};
+
+const decrementCount = ({ decrementBy = 1 } = {}) => {
+  return {
+    type: 'DECREMENT',
+    decrementBy
+  }
+};
+
+
+const store = createStore(countReducer);
 // subscribe is called when any change is made to store
 const unsubscribe = store.subscribe(() => {
   console.log(store.getState());
